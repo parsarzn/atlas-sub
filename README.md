@@ -19,7 +19,7 @@
 
 ## مرزبان
 
-**دستور زیر را در سرور خود وارد کنید (نسخه فارسی)**:
+**برای نصب یا آپدیت دستور زیر را در سرور خود وارد کنید (نسخه فارسی)**:
 
    ```bash
    bash <(curl -Ls https://raw.githubusercontent.com/parsarzn/atlas-sub/master/install.sh)
