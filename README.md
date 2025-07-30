@@ -3,9 +3,8 @@
 **atlas sub** 
 
 <p align="center">
-  <a href="https://github.com/trbsami/marzban-template" target="_blank" rel="noopener noreferrer">
     <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/desktop.png" alt="SubPage screenshots" width="800" height="auto">
-  </a>
+    <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/mobile.png" alt="SubPage screenshots" width="300" height="auto">
 </p>
 
   </a>
