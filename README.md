@@ -23,7 +23,7 @@
 **فایل رو در سرور خود نصب کنید (نسخه فارسی)**:
    ```bash
    sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/parsarzn/atlas-sub/main/src/marzban/fa/index.html
-
+   ```
 **چنل اطلس در تلکرام :**  
 trbSami   [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white)](https://t.me/trbsami)
 
