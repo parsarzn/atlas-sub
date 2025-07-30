@@ -7,11 +7,11 @@ LINE1_PATTERN='^CUSTOM_TEMPLATES_DIRECTORY\s*=\s*"/var/lib/marzban/templates/"$'
 LINE2_PATTERN='^SUBSCRIPTION_PAGE_TEMPLATE\s*=\s*"subscription/index.html"$'
 TO_ADD=""
 
-if ! grep -Pq "$LINE1_PATTERN" "$ENV_FILE"; then
+if ! tr -d '[:space:]' < "$ENV_FILE" | grep -q 'CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzban/templates/"'; then
     TO_ADD+='CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzban/templates/"'$'\n'
 fi
 
-if ! grep -Pq "$LINE2_PATTERN" "$ENV_FILE"; then
+if ! tr -d '[:space:]' < "$ENV_FILE" | grep -q 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"'; then
     TO_ADD+='SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"'$'\n'
 fi
 
