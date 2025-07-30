@@ -6,11 +6,11 @@ ENV_FILE="/opt/marzban/.env"
 TO_ADD=""
 
 # بررسی وجود خطوط فقط در خطوطی که با # شروع نمی‌شن (یعنی فعال هستن)
-if ! grep -E '^\s*[^#]*CUSTOM_TEMPLATES_DIRECTORY\s*=\s*"/var/lib/marzban/templates/"' "$ENV_FILE" > /dev/null; then
+if ! grep -v '^\s*#' "$ENV_FILE" | grep -E '\s*CUSTOM_TEMPLATES_DIRECTORY\s*=\s*"/var/lib/marzban/templates/"' > /dev/null; then
     TO_ADD+='CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzban/templates/"'$'\n'
 fi
 
-if ! grep -E '^\s*[^#]*SUBSCRIPTION_PAGE_TEMPLATE\s*=\s*"subscription/index.html"' "$ENV_FILE" > /dev/null; then
+if ! grep -v '^\s*#' "$ENV_FILE" | grep -E '\s*SUBSCRIPTION_PAGE_TEMPLATE\s*=\s*"subscription/index.html"' > /dev/null; then
     TO_ADD+='SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"'$'\n'
 fi
 
