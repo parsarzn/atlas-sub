@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/trbsami/atlas-sub/main/src/marzban/fa/index.html
+sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/parsarzn/atlas-sub/main/index.html
 
 ENV_FILE="/opt/marzban/.env"
 LINE1='CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzban/templates/"'
