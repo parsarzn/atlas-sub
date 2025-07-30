@@ -1,6 +1,6 @@
-# تمپلیت مناسب مرزبان و مرزنشین 
+# پطلس فورک اطلس
 
-**atlas sub** 
+**patlas sub** 
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/desktop.png" alt="SubPage screenshots" style="height: 400px; vertical-align: middle;">
@@ -10,11 +10,6 @@
   </a>
 </p>
 
-## ویژگی‌ها
-- ⚡ سبک و سریع
-- 🎨 طراحی‌شده با TailwindCSS
-- 📱 سازگار با موبایل
-- ✏️ کد تمیز و قابل ویرایش
 
 ---
 
