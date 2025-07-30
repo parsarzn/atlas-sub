@@ -1,4 +1,4 @@
-# پطلس فورک اطلس
+# پطلس فورکی از [اطلس]([https://t.me/trbsami](https://github.com/trbsami/atlas-sub))
 
 **patlas sub** 
 
@@ -14,15 +14,15 @@
 ---
 
 **سعی کردم باگ های اطلس را برطرف و کد را بهینه و کاربر پسند تر کنم**
+**برنامه Happ به لیست اضافه شد**
 
 ## مرزبان
 
 برای استفاده از  این قالب در پروژه خود، مراحل زیر را دنبال کنید:
 
-1. **فایل رو در سرور خود نصب کنید (نسخه فارسی)**:
-2. 
+**فایل رو در سرور خود نصب کنید (نسخه فارسی)**:
    ```bash
-   sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/trbsami/atlas-sub/main/src/marzban/fa/index.html
+   sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/parsarzn/atlas-sub/main/src/marzban/fa/index.html
 
 **چنل اطلس در تلکرام :**  
 trbSami   [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white)](https://t.me/trbsami)
