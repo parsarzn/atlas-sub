@@ -3,8 +3,8 @@
 **atlas sub** 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/desktop.png" alt="SubPage screenshots" width="800" height="auto">
-    <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/mobile.png" alt="SubPage screenshots" width="300" height="auto">
+    <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/desktop.png" alt="SubPage screenshots" style="height: 400px; vertical-align: middle;">
+    <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/mobile.png" alt="SubPage screenshots" style="height: 400px; vertical-align: middle;">
 </p>
 
   </a>
