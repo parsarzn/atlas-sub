@@ -19,12 +19,14 @@
 
 ## مرزبان
 
-**فایل رو در سرور خود نصب کنید (نسخه فارسی)**:
+**دستور زیر را در سرور خود وارد کنید (نسخه فارسی)**:
 
    ```bash
    bash <(curl -Ls https://raw.githubusercontent.com/parsarzn/atlas-sub/master/install.sh)
    ```
-**چنل اطلس در تلکرام :** 
+
+
+## چنل اطلس در تلکرام
  
 trbSami   [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white)](https://t.me/trbsami)
 
