@@ -19,13 +19,13 @@
 
 ## مرزبان
 
-برای استفاده از  این قالب در پروژه خود، مراحل زیر را دنبال کنید:
-
 **فایل رو در سرور خود نصب کنید (نسخه فارسی)**:
+
    ```bash
-   sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/parsarzn/atlas-sub/main/src/marzban/fa/index.html
+   bash <(curl -Ls https://raw.githubusercontent.com/parsarzn/atlas-sub/master/install.sh)
    ```
-**چنل اطلس در تلکرام :**  
+**چنل اطلس در تلکرام :** 
+ 
 trbSami   [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white)](https://t.me/trbsami)
 
 
