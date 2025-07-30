@@ -1,4 +1,4 @@
-# پطلس فورکی از [اطلس]([https://t.me/trbsami](https://github.com/trbsami/atlas-sub))
+# پطلس فورکی از [اطلس](https://github.com/trbsami/atlas-sub)
 
 **patlas sub** 
 
