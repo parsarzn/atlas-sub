@@ -4,8 +4,8 @@
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/desktop.png">
-    <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/mobile.png" alt="SubPage screenshots"  vertical-align: middle;">
-    <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/mobile2.png" alt="SubPage screenshots"  vertical-align: middle;">
+    <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/mobile.png" alt="SubPage screenshots" style="width: 400px; vertical-align: middle;">
+    <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/mobile2.png" alt="SubPage screenshots" style="width: 400px; vertical-align: middle;">
 </p>
 
   </a>
