@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/trbsami/marzban-template" target="_blank" rel="noopener noreferrer">
-    <img src="https://raw.githubusercontent.com/trbsami/atlas-sub/main/photo_2025-06-30_16-28-44.jpg" alt="SubPage screenshots" width="800" height="auto">
+    <img src="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/desktop,png" alt="SubPage screenshots" width="800" height="auto">
   </a>
 </p>
 
