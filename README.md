@@ -26,9 +26,9 @@
    ```
 
 
-## چنل اطلس در تلکرام
+## انتقاد و پیشنهاد
  
-trbSami   [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white)](https://t.me/trbsami)
+parsarzn   [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white)](https://t.me/parsarzn)
 
 
 ## حمایت از اطلس
