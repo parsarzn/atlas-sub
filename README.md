@@ -24,8 +24,7 @@
    ```bash
    bash <(curl -Ls https://raw.githubusercontent.com/parsarzn/atlas-sub/master/install.sh)
    ```
-
-**اگر از ورژن beta مرزبان استفاده میکنید
+**اگر از ورژن beta مرزبان استفاده میکنید**
    ```bash
    sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/parsarzn/atlas-sub/main/next/index.html
    ```
