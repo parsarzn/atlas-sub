@@ -793,7 +793,7 @@
         function qrApp() {
             return {
                 showLinks: false,
-                subscriptionUrl: '{{ subscription }}' || '',
+                subscriptionUrl: '{{ links }}' || '',
                 links: [{% for link in links %}'{{ link }}'{% if not loop.last %}, {% endif %}{% endfor %}] || [],
                 qrVisible: false,
                 qrTitle: '',
