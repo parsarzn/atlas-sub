@@ -36,5 +36,5 @@ parsarzn   [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?logo=telegr
 
 
 ## حمایت از ما
-- **TON:** `TXkFLpfHMPhnosQW6RHc7zTFzWwYr8x3DU`
+- **TON:** `UQAwWjs_ZpE9ODD-wFkGK6ay1eMB7EGKIarnzQIPuYGUn5qk`
 - **TRX:** `TXkFLpfHMPhnosQW6RHc7zTFzWwYr8x3DU`
