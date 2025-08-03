@@ -894,13 +894,13 @@
                         name: 'Happ',
                         link: 'https://apps.apple.com/us/app/happ-proxy-utility/id6504287215',
                         support: 'iOS',
-                        scheme: `happ://add/{{ user.subscription_url }}`
+                        scheme: 'happ://add/' + window.location.href
                     },
                     {
                         name: 'Happ',
                         link: 'https://play.google.com/store/apps/details?id=com.happproxy',
                         support: 'Android',
-                        scheme: `happ://add/{{ user.subscription_url }}`
+                        scheme: 'happ://add/' + window.location.href
                     }
                 ],
                 triggerAppImport(app) {
