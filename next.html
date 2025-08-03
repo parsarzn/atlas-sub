@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+      <link rel="icon" href="https://raw.githubusercontent.com/parsarzn/atlas-sub/main/logo.png" type="image/png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.username }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
+    <script>
+      function openSupport() {
+        const supportUrl = "https://t.me/parsarzn"; // ایدی خود را به جای "your_id" قرار دهید
+        if (supportUrl && supportUrl.startsWith("http")) {
+          window.open(supportUrl, "_blank");
+        } else {
+          alert("آدرس پشتیبانی معتبر نیست.");
+        }
+      }
+    </script>
+    <style>
+      @import url('https://v1.fontapi.ir/css/Vazir');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+      :root {
+          --bg-primary: #0f0f12;
+          --bg-secondary: #1a1a1f;
+          --bg-card: #25252d;
+          --text-primary: #ffffff;
+          --text-secondary: #a0aec0;
+          --accent-blue: #3b82f6;
+          --accent-green: #10b981;
+          --accent-purple: #8b5cf6;
+          --accent-yellow: #f59e0b;
+          --accent-red: #ef4444;
+          --accent-teal: #14b8a6;
+          --border-radius: 12px;
+          --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      [data-theme="light"] {
+          --bg-primary: #f5f5f5;
+          --bg-secondary: #e5e7eb;
+          --bg-card: #ffffff;
+          --text-primary: #1f2937;
+          --text-secondary: #6b7280;
+          --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      * {
+          margin: 0px;
+          padding: 0;
+          box-sizing: border-box;
+          transition: all 0.2s ease;
+      }
+
+      body {
+          font-family: 'Vazir', 'Inter', sans-serif;
+          background-color: var(--bg-primary);
+          color: var(--text-primary);
+          line-height: 1.5;
+          min-height: 100vh;
+          padding: 20px;
+          direction: rtl;
+      }
+
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+
+      .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 30px;
+          flex-wrap: wrap;
+          gap: 1rem;
+      }
+
+      .logo {
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: #1d4ed8;
+          display: flex;
+          align-items: flex-start;
+          gap: 4px;
+          white-space: nowrap;
+          margin-top: 20px;
+          margin-bottom: 10px;
+      }
+
+      .logo span {
+          color: var(--text-primary);
+      }
+
+      @media (max-width: 600px) {
+          .logo {
+              margin-bottom: -50px;
+              margin-top: 30px;
+          }
+      }
+
+      .settings-card {
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
+      }
+
+      .settings-list {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 1rem;
+          direction: rtl;
+      }
+
+      .setting-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          cursor: pointer;
+      }
+
+      .setting-icon {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 20px;
+          margin-bottom: 0.4rem;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .setting-label {
+          font-size: 0.85rem;
+          font-weight: 500;
+          color: var(--text-primary);
+      }
+
+      .cards-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 20px;
+          margin-bottom: 30px;
+      }
+
+      .card {
+          background-color: var(--bg-card);
+          border-radius: var(--border-radius);
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: var(--card-shadow);
+      }
+
+      .card-header {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .card-icon {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 16px;
+      }
+
+      .card-blue .card-icon { background-color: var(--accent-blue); }
+      .card-green .card-icon { background-color: var(--accent-green); }
+      .card-purple .card-icon { background-color: var(--accent-purple); }
+      .card-yellow .card-icon { background-color: var(--accent-yellow); }
+
+      .card-label {
+          font-size: 0.9rem;
+          color: var(--text-secondary);
+      }
+
+      .card-value {
+            color: var(--text-primary);
+            padding: 10px;
+            border-radius: 8px;
+            direction: ltr; /* جهت متن چپ به راست */
+            text-align: left; /* تراز متن به چپ */
+        }
+
+      .progress-container {
+          width: 100%;
+          height: 28px;
+          background-color: #d1d5db;
+          border-radius: 15px;
+          margin-top: 10px;
+          position: relative;
+      }
+
+      .progress-bar {
+          height: 100%;
+          background-color: #a78bfa;
+          border-radius: 15px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: width 0.5s ease;
+      }
+
+      .progress-text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 1rem;
+          font-weight: bold;
+          padding: 2px 10px;
+          border-radius: 10px;
+      }
+
+      [data-theme="light"] .progress-bar {
+          background-color: #a78bfa;
+      }
+
+      [data-theme="light"] .progress-text {
+          color: #1f2937;
+      }
+
+      [data-theme="dark"] .progress-bar {
+          background-color: #a78bfa;
+      }
+
+      .additional-sections {
+          margin-top: 42px;
+      }
+
+      .advanced-card {
+          background-color: var(--bg-card);
+          border-radius: var(--border-radius);
+          max-width: 1173px;
+          padding: 20px;
+          margin-left: auto;
+          margin-bottom: -15px;
+          margin-right: 2px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: var(--card-shadow);
+      }
+
+      .advanced-card-header {
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: -15px;
+          padding-bottom: 15px;
+          cursor: pointer;
+      }
+
+      .advanced-card-title {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 1.1rem;
+          font-weight: 500;
+      }
+
+      .advanced-card-icon {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #1d4ed8;
+          background-color: #e9efff;
+      }
+
+      .advanced-card-content {
+          padding: 10px 0;
+          display: none;
+      }
+
+      .advanced-card-content.active {
+          display: block;
+      }
+
+      .app-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+          gap: 15px;
+      }
+
+      .app-item {
+          background-color: rgba(255, 255, 255, 0.05);
+          border-radius: 8px;
+          padding: 15px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 10px;
+      }
+
+      .app-icon {
+          width: 50px;
+          height: 50px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      [data-theme="light"] .app-icon {
+          background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .app-name {
+          font-weight: 500;
+          font-size: 0.9rem;
+      }
+
+      .app-support {
+          font-size: 0.8rem;
+          color: var(--text-secondary);
+      }
+
+      .app-button {
+          background-color: var(--accent-blue);
+          color: white;
+          border: none;
+          border-radius: 6px;
+          padding: 6px 12px;
+          font-size: 0.8rem;
+          cursor: pointer;
+          width: 100%;
+          transition: background-color 0.2s;
+      }
+
+      .app-button:hover {
+          background-color: #2563eb;
+      }
+
+      .config-link {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 8px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          margin-bottom: 6px;
+          background-color: var(--bg-card);
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          transition: all 0.2s ease-in-out;
+      }
+
+      .config-link:hover {
+          background-color: rgba(255, 255, 255, 0.05);
+      }
+
+      .config-link-name {
+          flex: 1;
+          text-align: right;
+          font-weight: 500;
+          padding-right: 15px;
+          font-size: 1rem;
+          color: var(--text-primary);
+      }
+
+      .config-link-buttons {
+          display: flex;
+          gap: 8px;
+      }
+
+      .config-link-copy-icon {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          background-color: #e9efff;
+          color: #1d4ed8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 0.8rem;
+          transition: background-color 0.3s ease;
+      }
+
+      .config-link-copy-icon:hover {
+          background-color: #d0dbff;
+      }
+
+      .config-link-qr-btn {
+          background-color: #e9efff;
+          border: none;
+          padding: 6px 12px;
+          border-radius: 8px;
+          color: #1d4ed8;
+          cursor: pointer;
+          font-size: 0.9rem;
+          transition: background 0.3s ease;
+      }
+
+      .config-link-qr-btn:hover {
+          background-color: #d0dbff;
+      }
+
+      .qr-modal {
+          position: fixed;
+          top: 0; right: 0; bottom: 0; left: 0;
+          background: rgba(0,0,0,0.6);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+      }
+
+      .qr-content {
+          background: var(--bg-card);
+          padding: 2rem;
+          border-radius: 10px;
+          text-align: center;
+          color: var(--text-primary);
+          min-width: 280px;
+      }
+
+      .qr-image {
+          margin: 10px 0;
+          max-width: 100%;
+          height: auto;
+      }
+
+      .qr-content button.copy-btn {
+          background-color: #e9efff;
+          color: #2563eb;
+          padding: 8px 16px;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+      }
+
+      .qr-content button.close-btn {
+          background-color: #ef4444;
+          color: #ffffff;
+          padding: 8px 16px;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+          .header {
+              flex-direction: column;
+              text-align: center;
+              gap: 15px;
+          }
+
+          .container, .header {
+              display: block;
+              text-align: left;
+          }
+
+          .setting-icon {
+              width: 48px;
+              height: 48px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-size: 20px;
+              margin-bottom: 0.4rem;
+          }
+
+          .setting-label {
+              font-size: 0.8rem;
+          }
+
+          .logo {
+              font-size: 1.5rem;
+          }
+
+          .cards-grid {
+              grid-template-columns: 1fr;
+          }
+      }
+
+      @media (min-width: 769px) {
+          .cards-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+      }
+
+      .device-app-card {
+          display: flex;
+          align-items: center;
+          padding: 8px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          margin-bottom: 6px;
+          background-color: var(--bg-card);
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          transition: all 0.2s ease-in-out;
+      }
+
+      .device-app-card:hover {
+          background-color: rgba(255, 255, 255, 0.05);
+      }
+
+      .device-app-card .app-icon {
+          font-size: 1.6rem;
+          margin-left: 10px;
+      }
+
+      .app-name {
+          flex: 1;
+          text-align: right;
+          font-weight: 500;
+          padding-right: 15px;
+          font-size: 1rem;
+      }
+
+      .app-support {
+          font-size: 0.8rem;
+          color: var(--text-secondary);
+          text-align: right;
+          padding-right: 15px;
+      }
+
+      .app-buttons {
+          display: flex;
+          gap: 8px;
+      }
+
+      .download-btn,
+      .add-btn {
+          background-color: #e9efff;
+          color: #1d4ed8;
+          border: none;
+          padding: 6px 12px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 0.9rem;
+          transition: background 0.3s ease;
+      }
+
+      .download-btn:hover,
+      .add-btn:hover {
+          background-color: #d0dbff;
+          color: #1d4ed8;
+      }
+
+      [x-cloak] {
+          display: none !important;
+      }
+
+      footer {
+          position: relative;
+          padding-top: 100px;
+          padding-bottom: -70px;
+          line-height: 1.5;
+          text-align: center;
+          font-size: 0.9rem;
+          color: var(--text-primary);
+      }
+
+      footer::before {
+          content: "";
+          position: absolute;
+          top: 90px;
+          left: -20px;
+          right: -20px;
+          height: 1px;
+          background-color: rgba(255, 255, 255, 0.1);
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                اطلاعات<span>سرویس شما</span>
+            </div>
+            <div class="settings-card">
+                <div class="settings-list">
+                    <div class="setting-item" x-data="{ isLight: document.documentElement.getAttribute('data-theme') === 'light' }" @click="toggleTheme(); isLight = !isLight">
+                        <div class="setting-icon" style="background-color: var(--accent-purple);">
+                            <i class="fas" :class="isLight ? 'fa-sun' : 'fa-moon'"></i>
+                        </div>
+                        <span class="setting-label">تغییر تم</span>
+                    </div>
+                    <div class="setting-item" onclick="openSupport()">
+                        <div class="setting-icon" style="background-color: var(--accent-green);">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <span class="setting-label">پشتیبانی</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            
+            <div class="card card-blue">
+                <div style="display: flex; align-items: center; direction: rtl; gap: 10px;">
+                    <i class="fas fa-user card-icon"></i>
+                    <span class="card-label">نام کاربری</span>
+                    <div class="card-value">{{ user.username }}</div>
+                </div>
+                <div style="display: flex; align-items: center; direction: rtl; gap: 10px;">
+                    {% set status_icon = {
+                        'active': ['fa-check-circle', '#16a34a', 'فعال'],
+                        'limited': ['fa-exclamation-triangle', '#ca8a04', 'محدود'],
+                        'expired': ['fa-clock', '#dc2626', 'منقضی شده'],
+                        'disabled': ['fa-times-circle', '#4b5563', 'غیرفعال']
+                    }[user.status] if user.status in ['active','limited','expired','disabled'] else ['fa-question-circle', '#6b7280', 'نامشخص'] %}
+                    <i class="fas {{ status_icon[0] }}" style="color:{{ status_icon[1] }}; font-size:24px;"></i>
+                    <span class="card-label">وضعیت سرور</span>
+                    {% set base_style = "color:#fff; border-radius:9999px; padding:6px 14px; font-weight:600; font-size:14px; display:inline-block; min-width:70px; text-align:center;" %}
+                    <span style="{{ base_style }} background-color:{{ status_icon[1] }};">{{ status_icon[2] }}</span>
+                </div>
+            </div>
+
+            <div class="card card-purple">
+                <div style="display: flex; align-items: center; direction: rtl; gap: 10px;">
+                    <i class="fas fa-calendar-alt card-icon"></i>
+                    <span class="card-label">مدت زمان</span>
+                    <div class="card-value"
+                        x-data="{
+                            expire: {% if user.expire %}'{{ user.expire|datetime|safe }}'{% else %}null{% endif %},
+                            getExpireText() {
+                                if (!this.expire) return 'نامحدود';
+                                if (this.expire.startsWith('{')) return 'مهمان';
+                                const now = new Date();
+                                const expireDate = new Date(this.expire);
+                                const diffDays = Math.ceil((expireDate - now) / (1000 * 60 * 60 * 24));
+                                const formattedDate = new Intl.DateTimeFormat('fa-IR-u-ca-persian', {
+                                    year: 'numeric', month: 'numeric', day: 'numeric'
+                                }).format(expireDate);
+                                if (diffDays > 0) {
+                                    return `${diffDays} روز\n${formattedDate}`;
+                                } else if (diffDays === 0) {
+                                    return `امروز\n(${formattedDate})`;
+                                } else {
+                                    return `منقضی شده در\n${formattedDate}`;
+                                }
+                            }
+                        }"
+                        x-init="$el.style.display = 'block'">
+                        <span class="font-semibold" x-text="getExpireText()" style="white-space: pre-line;"></span>
+                    </div>
+                </div>
+
+                {% set used_traffic = user.used_traffic | default(0) %}
+                {% set data_limit = user.data_limit | default(None) %}
+                {% set used_fmt = used_traffic | bytesformat %}
+                {% if data_limit %}
+                    {% set total_fmt = data_limit | bytesformat %}
+                    {% set used_percent = (used_traffic / data_limit) * 100 %}
+                {% else %}
+                    {% set total_fmt = "∞" %}
+                    {% set used_percent = 0 %}
+                {% endif %}
+                <div style="display: flex; align-items: center; direction: rtl; gap: 10px;">
+                    <i class="fas fa-chart-pie card-icon"></i>
+                    <span class="card-label">ترافیک</span>
+                    <div class="card-value">
+                        {{ used_fmt }} / {{ total_fmt }}
+                    </div>
+                </div>
+                {% if data_limit %}
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: {{ used_percent }}%;"></div>
+                            <div class="progress-text">
+                                {{ used_percent | round(1) }}%
+                            </div>
+                        </div>
+                    {% endif %}
+            </div>
+        </div>
+
+        <div class="additional-sections" x-data="appSection()">
+            <div class="advanced-card">
+                <div class="advanced-card-header" @click="showApps = !showApps" style="cursor:pointer;">
+                    <div class="advanced-card-title" style="display:flex; align-items:center; gap:10px;">
+                        <div class="advanced-card-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <span>افزودن کانفیگ خودکار</span>
+                        <i class="fas" :class="showApps ? 'fa-chevron-up' : 'fa-chevron-down'" style="margin-right: auto;"></i>
+                    </div>
+                </div>
+                <div class="advanced-card-body" x-show="showApps" x-transition>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="device-app-card">
+                            <i class="fab fa-apple app-icon" style="color:#6B7280;"></i>
+                            <div class="app-name">⭐️Happ</div>
+                            <div class="app-buttons">
+                                <a :href="apps[3].link" target="_blank" class="download-btn">دانلود</a>
+                                <button @click="triggerAppImport(apps[3])" class="add-btn">اضافه</button>
+                            </div>
+                        </div>
+                        <div class="device-app-card">
+                            <i class="fab fa-android app-icon" style="color:#4CAF50;"></i>
+                            <div class="app-name">⭐️Happ</div>
+                            <div class="app-buttons">
+                                <a :href="apps[4].link" target="_blank" class="download-btn">دانلود</a>
+                                <button @click="triggerAppImport(apps[4])" class="add-btn">اضافه</button>
+                            </div>
+                        </div>
+                        <div class="device-app-card">
+                            <i class="fab fa-android app-icon" style="color:#4CAF50;"></i>
+                            <div class="app-name">V2rayNG</div>
+                            <div class="app-buttons">
+                                <a :href="apps[1].link" target="_blank" class="download-btn">دانلود</a>
+                                <button @click="triggerAppImport(apps[1])" class="add-btn">اضافه</button>
+                            </div>
+                        </div>
+                        <div class="device-app-card">
+                            <i class="fab fa-windows app-icon" style="color:#2563EB;"></i>
+                            <div class="app-name">Nekoray</div>
+                            <div class="app-buttons">
+                                <a :href="apps[0].link" target="_blank" class="download-btn">دانلود</a>
+                                <button @click="triggerAppImport(apps[0])" class="add-btn">اضافه</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="additional-sections" x-data="qrApp()">
+            <div class="advanced-card" @click="showLinks = !showLinks" style="cursor: pointer;">
+                <div class="advanced-card-header">
+                    <div class="advanced-card-title" style="display: flex; align-items: center; gap: 13px;">
+                        <div class="advanced-card-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <span>افزودن کانفیگ دستی</span>
+                        <i class="fas" :class="showLinks ? 'fa-chevron-up' : 'fa-chevron-down'" style="margin-right: auto;"></i>
+                    </div>
+                </div>
+                <div style="text-align: left; direction: ltr;" x-show="showLinks" x-transition>
+                    <template x-if="subscriptionUrl.trim() !== ''">
+                        <div class="config-link">
+                            <div class="config-link-name">--- لینک اشتراک ---</div>
+                            <div class="config-link-buttons">
+                                <i class="fas fa-copy config-link-copy-icon" @click.stop="copyLink(subscriptionUrl)"></i>
+                                <button class="config-link-qr-btn" @click.stop="openQr(subscriptionUrl)">QR کد</button>
+                            </div>
+                        </div>
+                    </template>
+                    <template x-for="(link, index) in links" :key="index">
+                        <div class="config-link">
+                            <div class="config-link-name" x-text="getLinkName(link)"></div>
+                            <div class="config-link-buttons">
+                                <i class="fas fa-copy config-link-copy-icon" @click.stop="copyLink(link)"></i>
+                                <button class="config-link-qr-btn" @click.stop="openQr(link)">QR کد</button>
+                            </div>
+                        </div>
+                    </template>
+                    <div class="config-link">
+                        <div class="config-link-name"> کپی کردن همه کانفیگ ها</div>
+                        <div class="config-link-buttons">
+                            <i class="fas fa-copy config-link-copy-icon" @click.stop="copyAllLinks()"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div x-show="qrVisible" x-cloak class="qr-modal" @click.self="qrVisible = false" x-transition>
+                <div class="qr-content" @click.stop>
+                    <h4 class="qr-title" x-text="qrTitle"></h4>
+                    <img id="qr-img" class="qr-image" alt="QR Code">
+                    <div class="qr-buttons">
+                        <button class="copy-btn" @click="copyLink(currentLink)">کپی لینک</button>
+                        <button class="close-btn" @click="qrVisible = false">بستن</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>با سپاس از اعتماد شما</footer>
+    </div>
+
+    <script>
+        function qrApp() {
+            return {
+                showLinks: false,
+                subscriptionUrl: '{{ user.subscription_url }}' || '',
+                links: [{% for link in user.links %}'{{ link }}'{% if not loop.last %}, {% endif %}{% endfor %}] || [],
+                qrVisible: false,
+                qrTitle: '',
+                currentLink: '',
+                getLinkName(link) {
+                    if (!link) return 'لینک نامعتبر';
+                    if (link === this.subscriptionUrl) return 'لینک اشتراک';
+                    const protocols = {
+                        'vmess://': l => {
+                            try {
+                                let json = JSON.parse(atob(l.replace('vmess://', '')));
+                                return json.ps || 'VMess';
+                            } catch { return 'VMess'; }
+                        },
+                        'vless://': l => {
+                            try {
+                                let url = new URL(l);
+                                return decodeURIComponent(url.hash.slice(1)) || 'VLESS';
+                            } catch { return 'VLESS'; }
+                        },
+                        'trojan://': l => {
+                            try {
+                                let url = new URL(l);
+                                return decodeURIComponent(url.hash.slice(1)) || 'Trojan';
+                            } catch { return 'Trojan'; }
+                        },
+                        'ss://': l => {
+                            try {
+                                if (l.includes('#')) return decodeURIComponent(l.split('#')[1]) || 'Shadowsocks';
+                                return 'Shadowsocks';
+                            } catch { return 'Shadowsocks'; }
+                        }
+                    };
+                    for (const prefix in protocols) {
+                        if (link.startsWith(prefix)) return protocols[prefix](link);
+                    }
+                    return 'لینک کانفیگ';
+                },
+                copyLink(link) {
+                    navigator.clipboard.writeText(link)
+                        .then(() => alert('کپی شد!'))
+                        .catch(() => alert('خطا در کپی'));
+                },
+                copyAllLinks() {
+                    const allLinks = this.links.join('\n');
+                    navigator.clipboard.writeText(allLinks)
+                        .then(() => alert('همه لینک‌ها کپی شدند!'))
+                        .catch(() => alert('خطا در کپی لینک‌ها'));
+                },
+                openQr(link) {
+                    this.currentLink = link;
+                    this.qrTitle = this.getLinkName(link);
+                    this.qrVisible = true;
+                    this.generateQr(link);
+                },
+                generateQr(link) {
+                    const fg = getComputedStyle(document.documentElement).getPropertyValue('--text-primary').trim() || '#ffffff';
+                    const bg = getComputedStyle(document.documentElement).getPropertyValue('--bg-card').trim() || 'transparent';
+                    const qr = new QRious({
+                        value: link,
+                        size: 200,
+                        background: bg,
+                        foreground: fg,
+                        level: 'H'
+                    });
+                    const img = document.getElementById('qr-img');
+                    if (img) {
+                        img.src = qr.toDataURL();
+                    }
+                }
+            };
+        }
+
+        function appSection() {
+            return {
+                showApps: false,
+                subscriptionUrl: '{{ user.subscription_url }}' || '',
+                apps: [
+                    {
+                        name: 'Nekoray',
+                        link: 'https://github.com/MatsuriDayo/nekoray/releases',
+                        support: 'Windows',
+                        copyLink: '{{ user.subscription_url }}'
+                    },
+                    {
+                        name: 'v2rayNG',
+                        link: 'https://github.com/2dust/v2rayNG/releases/latest',
+                        support: 'Android',
+                        scheme: `v2rayng://install-config?url=${encodeURIComponent('{{ user.subscription_url }}')}#${encodeURIComponent('{{ user.username }}')}`
+                    },
+                    {
+                        name: 'Streisand',
+                        link: 'https://apps.apple.com/us/app/streisand/id6450534064',
+                        support: 'iOS',
+                        scheme: `streisand://import/${encodeURIComponent('{{ user.subscription_url }}')}#${encodeURIComponent('{{ user.username }}')}`
+                    },
+                    {
+                        name: 'Happ',
+                        link: 'https://apps.apple.com/us/app/happ-proxy-utility/id6504287215',
+                        support: 'iOS',
+                        scheme: `happ://add/{{ user.subscription_url }}`
+                    },
+                    {
+                        name: 'Happ',
+                        link: 'https://play.google.com/store/apps/details?id=com.happproxy',
+                        support: 'Android',
+                        scheme: `happ://add/{{ user.subscription_url }}`
+                    }
+                ],
+                triggerAppImport(app) {
+                    if (app.name === 'Nekoray') {
+                        if (this.subscriptionUrl) {
+                            navigator.clipboard.writeText(this.subscriptionUrl)
+                                .then(() => alert('لینک اشتراک کپی شد!  لطفا توی { Nekoray } با زدن { ctrl + v } اضافه کنید'))
+                                .catch(() => alert('خطا در کپی لینک اشتراک'));
+                        } else {
+                            alert('لینک اشتراک در دسترس نیست.');
+                        }
+                    } else {
+                        window.location.href = app.scheme;
+                    }
+                }
+            };
+        }
+
+        function toggleTheme() {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            const newTheme = isLight ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.documentElement.setAttribute('dir', 'rtl');
+        }
+
+        function applySavedTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.documentElement.setAttribute('dir', 'rtl');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            applySavedTheme();
+        });
+    </script>
+</body>
+</html>
