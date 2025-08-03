@@ -870,25 +870,25 @@
         function appSection() {
             return {
                 showApps: false,
-                subscriptionUrl: '{{ user.subscription_url }}' || '',
+                subscriptionUrl: window.location.href || '',
                 apps: [
                     {
                         name: 'Nekoray',
                         link: 'https://github.com/MatsuriDayo/nekoray/releases',
                         support: 'Windows',
-                        copyLink: '{{ user.subscription_url }}'
+                        copyLink: window.location.href
                     },
                     {
                         name: 'v2rayNG',
                         link: 'https://github.com/2dust/v2rayNG/releases/latest',
                         support: 'Android',
-                        scheme: `v2rayng://install-config?url=${encodeURIComponent('{{ user.subscription_url }}')}#${encodeURIComponent('{{ user.username }}')}`
+                        scheme: `v2rayng://install-config?url=${encodeURIComponent(window.location.href)}#${encodeURIComponent('{{ user.username }}')}`
                     },
                     {
                         name: 'Streisand',
                         link: 'https://apps.apple.com/us/app/streisand/id6450534064',
                         support: 'iOS',
-                        scheme: `streisand://import/${encodeURIComponent('{{ user.subscription_url }}')}#${encodeURIComponent('{{ user.username }}')}`
+                        scheme: `streisand://import/${encodeURIComponent(window.location.href)}#${encodeURIComponent('{{ user.username }}')}`
                     },
                     {
                         name: 'Happ',
