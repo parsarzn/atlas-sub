@@ -35,6 +35,6 @@
 parsarzn   [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white)](https://t.me/parsarzn)
 
 
-## حمایت از اطلس
-- **TON:** `UQDj12cOZIrM1Ft11Pc38wVi2fx2mg-L8gZRFmLEb4jBdET7`
-- **TRX:** `TYD5azd2aiu1JGaGD7thvT2oRKu376Zga6`
+## حمایت از ما
+- **TON:** `TXkFLpfHMPhnosQW6RHc7zTFzWwYr8x3DU`
+- **TRX:** `TXkFLpfHMPhnosQW6RHc7zTFzWwYr8x3DU`
