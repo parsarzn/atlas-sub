@@ -794,7 +794,7 @@
             return {
                 showLinks: false,
                 subscriptionUrl: '{{ user.subscription_url }}' || '',
-                links: [{% for link in user.links %}'{{ link }}'{% if not loop.last %}, {% endif %}{% endfor %}] || [],
+                links: [{% for link in links %}'{{ link }}'{% if not loop.last %}, {% endif %}{% endfor %}] || [],
                 qrVisible: false,
                 qrTitle: '',
                 currentLink: '',
