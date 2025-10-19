@@ -17,6 +17,10 @@
 **سعی کردم باگ های اطلس را برطرف و کد را بهینه و کاربر پسند تر کنم**
 **برنامه Happ به لیست اضافه شد**
 
+## پاسارگارد
+  ```bash
+   sudo wget -N -P /var/lib/pasarguard/templates/subscription/ https://raw.githubusercontent.com/parsarzn/atlas-sub/main/next/index.html
+   ```
 ## مرزبان
 
 **برای نصب یا آپدیت دستور زیر را در سرور خود وارد کنید (نسخه فارسی)**:
